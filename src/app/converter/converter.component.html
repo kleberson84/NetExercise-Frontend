@@ -3,8 +3,9 @@
 	<textarea name="Content" #Content="ngModel" (ngModel)="inputText.content" rows="6" class="form-control mb-3"
 		placeholder="Text to be converted" required></textarea>
 
-	<button class="btn btn-success btn-lg col-md-5 col-sm-12 mb-3" type="submit" [disabled]="form.invalid">Convert to
-		XML</button>
-	<button class="btn btn-success btn-lg col-md-5 col-sm-12 mb-3 float-right" type="submit"
-		[disabled]="form.invalid">Convert to CSV</button>
+	<button class="btn btn-success btn-lg col-md-5 col-sm-12 mb-3" type="submit" [disabled]="form.invalid"
+		(click)="convertToXml(form)">Convert to XML</button>
+	<button class="btn btn-success btn-lg col-md-5 col-sm-12 mb-3 float-right" type="submit" [disabled]="form.invalid"
+		(click)="convertToCsv(form)">Convert to CSV</button>
+
 </form>

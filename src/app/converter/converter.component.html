@@ -8,4 +8,7 @@
 	<button class="btn btn-success btn-lg col-md-5 col-sm-12 mb-3 float-right" type="submit" [disabled]="form.invalid"
 		(click)="convertToCsv(form)">Convert to CSV</button>
 
+	<textarea name="Result" #Result="ngModel" [ngModel]="convertedText.content" rows="20" class="form-control"
+		disabled></textarea>
+
 </form>

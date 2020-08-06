@@ -13,6 +13,8 @@ import { Observable } from 'rxjs';
 export class ConverterComponent implements OnInit {
 	inputText: TextWebModel;
 	convertedText: TextWebModel;
+	hasError: boolean;
+	errorMessage: string;
 
 	constructor(private service: ConverterService) { }
 
@@ -24,27 +26,33 @@ export class ConverterComponent implements OnInit {
 		if (form != null) {
 			form.resetForm();
 		}
+		this.hasError = false;
+		this.errorMessage = '';
 		this.inputText = { content: '' }
 		this.convertedText = { content: '' }
 	}
 
 	convertToXml(form: NgForm) {
+		this.hasError = false;
 		let convertResult = this.service.convertToXml(form.value);
 		this.processConvertResult(convertResult);
 	}
 
 	convertToCsv(form: NgForm) {
+		this.hasError = false;
 		let convertResult = this.service.convertToCsv(form.value);
 		this.processConvertResult(convertResult);
 	}
 
 	processConvertResult(convertResult: Observable<TextWebModel>) {
 		convertResult.subscribe(
-			result => {
-				this.convertedText = result;
+			res => {
+				this.convertedText = res;
 			},
-			error => {
-				console.log(error);
+			err => {
+				this.hasError = true;
+				this.errorMessage = err.error;
+				this.convertedText = { content: '' }
 			}
 		)
 	}

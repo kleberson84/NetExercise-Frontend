@@ -32,15 +32,15 @@ export class ConverterComponent implements OnInit {
 		this.convertedText = { content: '' }
 	}
 
-	convertToXml(form: NgForm) {
+	getXml(form: NgForm) {
 		this.hasError = false;
-		let convertResult = this.service.convertToXml(form.value);
+		let convertResult = this.service.getXml(form.value);
 		this.processConvertResult(convertResult);
 	}
 
-	convertToCsv(form: NgForm) {
+	getCsv(form: NgForm) {
 		this.hasError = false;
-		let convertResult = this.service.convertToCsv(form.value);
+		let convertResult = this.service.getCsv(form.value);
 		this.processConvertResult(convertResult);
 	}
 

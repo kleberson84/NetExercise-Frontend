@@ -15,11 +15,11 @@ export class ConverterService {
 
 	constructor(private http: HttpClient) { }
 
-	convertToXml(formData: TextWebModel): Observable<TextWebModel> {
+	getXml(formData: TextWebModel): Observable<TextWebModel> {
 		return this.http.post<TextWebModel>(`${this.apiUrl}/convert/xml`, formData, this.httpOptions);
 	}
 
-	convertToCsv(formData: TextWebModel): Observable<TextWebModel> {
+	getCsv(formData: TextWebModel): Observable<TextWebModel> {
 		return this.http.post<TextWebModel>(`${this.apiUrl}/convert/csv`, formData, this.httpOptions);
 	}
 }

@@ -5,9 +5,9 @@
 	<div *ngIf="hasError" class="alert alert-danger" role="alert">{{ errorMessage.error }}</div>
 
 	<button class="btn btn-success btn-lg col-md-5 col-sm-12 mb-3" type="submit" [disabled]="form.invalid"
-		(click)="convertToXml(form)">Convert to XML</button>
+		(click)="getXml(form)">Convert to XML</button>
 	<button class="btn btn-success btn-lg col-md-5 col-sm-12 mb-3 float-right" type="submit" [disabled]="form.invalid"
-		(click)="convertToCsv(form)">Convert to CSV</button>
+		(click)="getCsv(form)">Convert to CSV</button>
 
 	<textarea name="Result" #Result="ngModel" [ngModel]="convertedText.content" rows="20" class="form-control"
 		disabled></textarea>
